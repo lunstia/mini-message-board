@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form(method='POST' action='/new')
+    input(type='text' name='messageUser' placeholder='name')
+    br
+    textarea(name='messageText' placeholder="What's on your mind?")
+    br
+    button(type='submit')
+      p='Submit'
+  section(class="test")
+    each val in messages
+      div
+        h4=val.user
+        p=val.text
+        p=val.added
+  
